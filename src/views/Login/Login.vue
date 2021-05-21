@@ -25,8 +25,11 @@
         </el-form-item>
         <!-- 按钮 -->
         <div class="button-all">
-          <el-button type="primary" class="sumbit">提交</el-button>
-          <el-button class="reset">重置</el-button>
+          <el-button type="primary" class="sumbit" @click="LoginHome"
+            >登录</el-button
+          >
+          <el-button class="reset" @click="ResetText">重置</el-button>
+          <el-checkbox class="checked" v-model="checked">是否记住</el-checkbox>
         </div>
       </el-form>
     </div>
@@ -37,12 +40,22 @@
 export default {
   data() {
     return {
+      checked: true,
       // 绑定表单数据
       ruleForm: {
         account: "",
         password: "",
       },
     };
+  },
+  methods: {
+    LoginHome() {
+      alert("登入功能正在开发中");
+    },
+    ResetText() {
+      this.ruleForm.account = "";
+      this.ruleForm.password = "";
+    },
   },
 };
 </script>
@@ -74,7 +87,7 @@ export default {
     width: 450px;
     height: 350px;
     border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(221, 221, 221, 0.5);
     transition: 0.5s;
     &:hover {
       background-color: rgba(255, 255, 255, 0.8);
@@ -93,6 +106,9 @@ export default {
       .reset {
         width: 80px;
         height: 40px;
+      }
+      .checked {
+        padding-left: 10px;
       }
     }
   }
